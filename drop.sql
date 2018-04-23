@@ -1,0 +1,12 @@
+1° -  alter table contatos drop foreign key fk_contatos_pessoa, drop key fk_contatos_pessoa;
+2°- alter table enderecos drop foreign key fk_endereco_pessoas1, drop key fk_endereco_pessoas1;
+3°- alter table lancamentos drop foreign key fk_lancamento_pessoa1, drop key fk_lancamento_pessoa1;
+4° - alter table pessoas modify column id bigint unique;
+5°- alter table pessoas drop primary key;
+6°- alter table pessoas add column pessoa_cpf bigint (20) not null primary key;
+7°- alter table contatos add column pessoa_cpf bigint (20) not null;
+8°- alter table contatos add constraint pessoa_cpf_fk foreign key (pessoa_cpf) references pessoas (pessoa_cpf);
+9°-alter table lancamentos add column pessoa_cpf bigint (20) not null;
+10°-alter table lancamentos add constraint pessoa1_cpf_fk foreign key (pessoa_cpf) references pessoas (pessoa_cpf);
+11°-alter table enderecos add column pessoa2_cpf bigint (20) not null;
+12°-alter table enderecos add constraint pessoa2_cpf_fk foreign key (pessoa_cpf) references pessoas (pessoa_cpf);
